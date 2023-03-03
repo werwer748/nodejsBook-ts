@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <script>
+      //   axios
+      //     .get("https://www.zerocho.com/api/get")
+      //     .then((result) => {
+      //       console.log(result);
+      //       console.log(result.data); // {}
+      //     })
+      //     .catch((error) => {
+      //       console.error(error);
+      //     });
+
+      // async/await 방식 사용
+      (async () => {
+        try {
+          const result = await axios.get("https://www.zerocho.com/api/get");
+          console.log(result);
+          console.log(result.data); // {}
+        } catch (err) {
+          console.error(err);
+        }
+      })();
+      //post
+      (async () => {
+        try {
+          const result = await axios.post(
+            "https://www.zerocho.com/api/post/json",
+            {
+              name: "zerocho",
+              birth: 1994,
+            }
+          );
+          console.log(result);
+          console.log(result.data); // {}
+        } catch (err) {
+          console.error(err);
+        }
+      })();
+    </script>
+  </body>
+</html>

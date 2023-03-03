@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FormData</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <script>
+      // AJAX 요청에 한글이 있어 서버가 주소를 이해하지 못할 때 window 객체의 encodeURIComponent 메서드(노드에서도 사용 가능)를 사용
+      // 한글 주소 부분만 encodeURIComponent로 감싼다.
+
+      (async () => {
+        try {
+          const result = await axios.get(
+            `https://www.zerocho.com/api/search/${encodeURIComponent("노드")}`
+          );
+          console.log(result);
+          console.log(result.data); // {}
+        } catch (err) {
+          console.error(err);
+        }
+      })();
+      /*
+        노드라는 한글 주소가 %EB%85%B8%EB%93%9C라는 문자열로 변환 됨.
+        받는 쪽에서는 decodeURIComponent를 사용하면 된다.(노드에서도 사용 가능)
+      */
+
+      console.log(decodeURIComponent("%EB%85%B8%EB%93%9C")); // 노드
+    </script>
+  </body>
+</html>

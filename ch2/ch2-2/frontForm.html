@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FormData</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <script>
+      const formData = new FormData();
+      formData.append("name", "zerocho");
+      formData.append("item", "orange");
+      formData.append("item", "melon");
+      formData.has("item"); // true
+      formData.has("money"); // false;
+      formData.get("item"); // orange
+      formData.getAll("item"); // ['orange', 'melon'];
+      formData.append("test", ["hi", "zero"]);
+      formData.get("test"); // hi, zero
+      formData.delete("test");
+      formData.get("test"); // null
+      formData.set("item", "apple");
+      formData.getAll("item"); // ['apple'];
+
+      /*
+            생성된 객체의 append 메서드로 키-값 형식의 데이터를 저장할 수 있다.
+            append 메서드를 여러 번 사용해서 키 하나에 여러 개의 값을 추가해도 됨.
+            has 메서드: 주어진 키에 해당하는 값이 있는지 체크(true, false 반환)
+            get 메서드: 주어진 키에 해당하는 값 하나를 가져옴
+            getAll 메서드: 해당하는 모든 값을 가져옴
+            delete 메서드: 현재 키를 제거하는 메서드
+            set 메서드: 현재 키를 수정하는 메서드
+        */
+
+      // => axios로 폼데이터 보내기
+      (async () => {
+        try {
+          const fData = new FormData();
+          fData.append("name", "hugoK");
+          fData.append("birth", 1993);
+          const result = await axios.post(
+            "https://www.zerocho.com/api/post/formData",
+            fData
+          );
+          console.log(result);
+          console.log(result.data); // {}
+        } catch (err) {
+          console.error(err);
+        }
+      })();
+    </script>
+  </body>
+</html>
