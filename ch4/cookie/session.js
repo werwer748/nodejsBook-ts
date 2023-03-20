@@ -24,7 +24,7 @@ http.createServer(async (req, res) => {
         // 쿠키 유효 시간을 현재 시간 + 5분으로 설정
         expires.setMinutes(expires.getMinutes() + 5);
         const uniqueInt = Date.now();
-        session[uniqueInt] = {
+        session[uniqueInt] = { // 사용자의 이름과 만료 시간을 session 객체에 저장
             name,
             expires,
         };
@@ -33,7 +33,9 @@ http.createServer(async (req, res) => {
             'Set-Cookie': `session=${uniqueInt}; Expires=${expires.toGMTString()}; HttpOnly; Path=/`,
         });
         res.end();
-    } else if (cookies.session && session[cookies.session].expires > new Date()) { // 세션쿠키가 존재하고, 만료 기간이 지나지 않았다면
+    } else if (cookies.session && session[cookies.session].expires > new Date()) { 
+        // 세션쿠키가 존재하고, 만료 기간이 지나지 않았다면 session 변수에서 사용자 정보를 가져와 사용한다.
+        // 이 방식이 세션 => 서버에 사용자 정보를 저장하고 클라이언트와는 세션 아이디로만 소통하는것!
         res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
         res.end(`${session[cookies.session].name}님 안녕하세요.`);
     } else { // 주소가 /이면서 name이라는 쿠키가 없는 경우
