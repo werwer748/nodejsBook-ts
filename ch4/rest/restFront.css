@@ -2,3 +2,8 @@ a {
   color: blue;
   text-decoration: none;
 }
+
+nav {
+  margin-top: 30px;
+  margin-left: 30px;
+}
