@@ -1,0 +1,34 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    style.
+        p {
+            font-size: 30px;
+        }
+    body
+        - const node = 'Node.js';
+        - const js = 'Javascript';
+        - const isLoggedIn = true;
+
+        h1= title
+        p Welcome to #{title}
+        p #{node}와 #{js}
+        button(type='submit') 전송
+        input(placeholder=title + ' 연습')
+
+        p= '<strong>이스케이프</strong>'
+        p!= '<strong>이스케이프하지 않음</strong>'
+
+        ul 
+         each fruit, index in ['사과', '배', '오렌지', '바나나', '복숭아']
+            li= (index + 1) + '번째 ' + fruit
+        
+        if isLoggedIn
+            div 로그인 되었습니다.
+        else 
+            div 로그인이 필요합니다.
+    //- script.
+    //-     const message = 'Pug';
+    //-     //- alert(message);

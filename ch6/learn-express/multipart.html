@@ -1,0 +1,20 @@
+<!-- 인풋하나당 한개의 파일 -->
+<form id="form" action="/upload" method="post" enctype="multipart/form-data">
+  <input type="file" name="image1" />
+  <input type="file" name="image2" />
+  <input type="text" name="title" />
+  <button type="submit">업로드</button>
+</form>
+
+<!-- 인풋 하나에 여러개의 파일 -->
+<!-- <form id="form" action="/upload" method="post" enctype="multipart/form-data">
+  <input type="file" name="many" multiple />
+  <input type="text" name="title" />
+  <button type="submit">업로드</button>
+</form> -->
+
+<!-- 파일 업로드 없이 멀티파트 형식의 업로드 -->
+<!-- <form id="form" action="/upload" method="post" enctype="multipart/form-data">
+    <input type="text" name="title" />
+    <button type="submit">업로드</button>
+  </form> -->
