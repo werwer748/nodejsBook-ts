@@ -51,7 +51,7 @@ app.use(express.urlencoded({ extended: false }));
 ? 요청 데이터의 종류
 JSON: JSON 형식의 데이터 전달 방식
 URL-encoded: 주소 형식으로 데이터를 보내는 방식(폼 전송이 주로 사용)
-{ extends: false }옵션이 false면 노드의 querystring 모듈을 사용해 쿼리스트링을 해석하고, true면 qs(내장모듈 X npm패키지 => querystring모듈의 기능을 좀 더 확장한 모듈) 모듈을 사용해 쿼리스트링을 해석함
+{ extended: false }옵션이 false면 노드의 querystring 모듈을 사용해 쿼리스트링을 해석하고, true면 qs(내장모듈 X npm패키지 => querystring모듈의 기능을 좀 더 확장한 모듈) 모듈을 사용해 쿼리스트링을 해석함
 */
 /** body-parser를 사용하면 req.on('data'), req.on('end')를 쓸 필요 없음. 패키지가 내부적으로 스티림을 처리해 req.body에 추가하기 떄문. */
 
