@@ -24,6 +24,7 @@ exports.join = async (req, res, next) => {
 
 exports.login = (req, res, next) => {
   passport.authenticate('local', (authError, user, info) => {
+    //? 2번째 인수로 { session: false }옵션으로 세션을 사용하지 않을 수 있음 :: jwt 방식을 사용할 경우.
     if (authError) {
       console.error(authError);
       return next(authError);
