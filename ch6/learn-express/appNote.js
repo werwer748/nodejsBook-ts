@@ -225,7 +225,7 @@ app.use((req, res, next) => {
     res.locals.data = '데이터 넣기';
     //? 세션 사용시 req.session에 데이터를 넣어도 되지만, 세션이 유지되는 동안에 데이터도 계속 유지된다는 단점이 있다.
     //? 요청이 끝날때 까지만! 데이터를 유지하고 싶다면 res.locals 객체에 데이터를 넣어두면 됨.
-    //? app.set은 앱 전체의 설저을 공유할 때 사용, res.locals는 요청에 종속되는 데이터를 전달할때 사용
+    //? app.set은 앱 전체의 설정을 공유할 때 사용, res.locals는 요청에 종속되는 데이터를 전달할때 사용
     next();
 }, (req, res, next) => {
     console.log(res.locals.data); // 데이터 받기
