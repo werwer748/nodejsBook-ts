@@ -1,9 +1,12 @@
 const express = require('express');
 
-const { verifyToken } = require('../middlewares');
+const { verifyToken, deprecated } = require('../middlewares');
 const { createToken, tokenTest, getMyPosts, getPostsByHashtag } = require('../controllers/v1');
 
 const router = express.Router();
+
+router.use(deprecated); // 라우터용 미들웨어!
+//? v1으로 접근한 모든 요청에 deprecated 요청을 보냄
 
 // POST /v1/token
 router.post('/token', createToken);
