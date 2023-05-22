@@ -1,3 +1,4 @@
+/*
 const Sequelize = require('sequelize');
 const User = require('./user');
 const Post = require('./post');
@@ -25,8 +26,9 @@ Post.associate(db);
 Hashtag.associate(db);
 
 module.exports = db;
-/*
-시퀄라이즈 모델 자동연결 (실무 예제)
+*/
+
+//* 시퀄라이즈 모델 자동연결 (실무 예제)
 
 const Sequelize=require('sequelize');
 const fs=require('fs');
@@ -42,7 +44,7 @@ const basename=path.basename(__filename);
 fs
   .readdirSync(__dirname)// 현재 폴더의 모든 파일을 조회
   .filter(file=>{// 숨김 파일, index.js, js 확장자가 아닌 파일 필터링
-    return(file.indexOf('.')!==0)&&(file!==basename)&&(file.slice(-3)==='.js');
+    return(file.indexOf('.') !== 0) && !file.includes('test') && (file !== basename)&&(file.slice(-3)==='.js');
   })
   .forEach(file=>{// 해당 파일의 모델을 불러와서 init
     const model=require(path.join(__dirname, file));
@@ -58,4 +60,3 @@ fs
   });
   
   module.exports= db;
-*/
