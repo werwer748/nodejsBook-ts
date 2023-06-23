@@ -4,7 +4,7 @@
   "description": "hugo nodebird",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app",
+    "start": "nodemon server",
     "test": "jest",
     "coverage": "jest --coverage"
   },
@@ -27,7 +27,9 @@
     "sequelize-cli": "^6.6.0"
   },
   "devDependencies": {
+    "artillery": "^2.0.0-34",
     "jest": "^29.5.0",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "supertest": "^6.3.3"
   }
 }
