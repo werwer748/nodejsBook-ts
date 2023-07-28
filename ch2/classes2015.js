@@ -1,33 +1,36 @@
 // ES2015
 class Human {
-    constructor(type = 'human') {
-        this.type = type;
-    }
+  constructor(type = "human") {
+    this.type = type;
+  }
 
-    static isHuman(human) {
-        return human instanceof Human;
-    }
+  static isHuman(human) {
+    return human instanceof Human;
+  }
 
-    breathe() {
-        alert('h-a-a-a-m');
-    }
-};
+  breathe() {
+    console.log("h-a-a-a-m");
+  }
+}
 
 class Hugo extends Human {
-    constructor(type, firstName, lastName) {
-        super(type);
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
+  constructor(type, firstName, lastName) {
+    super(type);
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
 
-    sayName() {
-        super.breathe();
-        alert(`${this.firstName} ${this.lastName}`);
-    }
-};
+  sayName() {
+    super.breathe();
+    console.log(`${this.firstName} ${this.lastName}`);
+  }
+}
 
-const newHugo = new Hugo('human', 'Hugo', 'Kang');
-Human.isHuman(newHugo);
+const newHugo = new Hugo("human", "Hugo", "Kang");
+
+// console.log(Hugo);
+console.log(new Hugo("human", "Hugo", "Kang").sayName());
+// console.log(Human.isHuman(newHugo));
 
 /*
     1. 전반적으로 class 안으로 그룹하된 것을 볼 수 있다.
